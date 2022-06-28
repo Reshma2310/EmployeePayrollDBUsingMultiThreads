@@ -42,5 +42,17 @@ namespace EmployeePayrollDBUsingMultiThreads
                 Console.WriteLine("Employee Added: " + employee.Name);
             }
         }
+        public void AddNewEmployeeUsingThread(List<EmployeePayrollModelClass> employeeList)
+        {
+            foreach (EmployeePayrollModelClass employee in employeeList)
+            {
+                Task Thread = new Task(() =>
+                {
+                    this.CreateNewContact(employee);
+                    Console.WriteLine("Employee Added: " + employee.Name);
+                });
+                Thread.Start();
+            }
+        }
     }
 }
