@@ -16,6 +16,7 @@ namespace EmployeePayrollDBUsingMultiThreads
         public void CreateNewContact(EmployeePayrollModelClass model)
         {
             SqlConnection connect = new SqlConnection(dbpath);
+            lock (this)
             using (connect)
             {
                 connect.Open();                
