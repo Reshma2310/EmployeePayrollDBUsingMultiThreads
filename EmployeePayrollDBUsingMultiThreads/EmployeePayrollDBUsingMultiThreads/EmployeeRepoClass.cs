@@ -49,8 +49,10 @@ namespace EmployeePayrollDBUsingMultiThreads
             {
                 Task Thread = new Task(() =>
                 {
+                    Console.WriteLine("Thread Execution Start Time: " + DateTime.Now);
                     this.CreateNewContact(employee);
                     Console.WriteLine("Employee Added: " + employee.Name);
+                    Console.WriteLine("Thread Execution End Time: " + DateTime.Now);
                 });
                 Thread.Start();
             }
